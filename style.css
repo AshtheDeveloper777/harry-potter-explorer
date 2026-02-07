@@ -1,0 +1,288 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(255, 215, 0, 0.5);
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: #e0e0e0;
+}
+
+.controls {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    border-color: #ffd700;
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #1a1a2e;
+    border-color: #ffd700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+}
+
+.search-box {
+    display: flex;
+    gap: 15px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #ffd700;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#searchInput::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+#searchBtn {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    color: #1a1a2e;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#searchBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+}
+
+#searchBtn:active {
+    transform: translateY(0);
+}
+
+.loading {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 215, 0, 0.3);
+    border-top: 4px solid #ffd700;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error {
+    background: rgba(255, 107, 107, 0.2);
+    border: 2px solid #ff6b6b;
+    color: #ff6b6b;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.3s;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #ffd700;
+    box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+}
+
+.card-header {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+}
+
+.card-title {
+    font-size: 1.8rem;
+    color: #ffd700;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.card-subtitle {
+    color: #e0e0e0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.card-content {
+    line-height: 1.8;
+}
+
+.card-info {
+    margin-bottom: 12px;
+}
+
+.card-label {
+    color: #ffd700;
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.card-value {
+    color: #fff;
+}
+
+.house-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.house-gryffindor {
+    background: linear-gradient(135deg, #740001, #ae0001);
+    color: #ffd700;
+}
+
+.house-slytherin {
+    background: linear-gradient(135deg, #1a472a, #2d5016);
+    color: #c0c0c0;
+}
+
+.house-ravenclaw {
+    background: linear-gradient(135deg, #0e1a40, #222f5b);
+    color: #946b2d;
+}
+
+.house-hufflepuff {
+    background: linear-gradient(135deg, #ecb939, #f0c75e);
+    color: #372e29;
+}
+
+.spell-type {
+    display: inline-block;
+    padding: 4px 10px;
+    background: rgba(255, 215, 0, 0.2);
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .search-box {
+        flex-direction: column;
+    }
+
+    #searchBtn {
+        width: 100%;
+    }
+
+    .results {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+}
+
